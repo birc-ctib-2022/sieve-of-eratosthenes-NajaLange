@@ -14,7 +14,19 @@ def sieve(n: int) -> list[int]:
     assert n > 0
     candidates = list(range(2, n + 1))
     primes = []
-
+    not_primes = []
+    
+    for i in candidates:
+        if i in candidates:
+            p = i
+            primes.append(i)
+            for j in candidates:
+                if j % p == 0 and j != p:
+                    candidates.remove(j)
+ 
     # FIXME: fill out this bit
 
     return primes
+
+
+print(sieve(15))
